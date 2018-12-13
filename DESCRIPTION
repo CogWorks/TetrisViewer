@@ -1,0 +1,23 @@
+Package: TetrisViewer
+Type: Package
+Title: TetrisViewer
+Version: 0.1.0
+Author: Matthew-Donald D. Sangster <matthew.donald.sangster@gmail.com>
+Maintainer: Matthew-Donald D. Sangster <matthew.donald.sangster@gmail.com>
+Description: Used to view board states from game files from Meta-T and Meta-TWO
+License: GPL-3
+Encoding: UTF-8
+LazyData: true
+Depends:
+    R (>= 3.4.2),
+    data.table
+Imports:
+    ggplot2,
+    animation,
+    manipulateWidget,
+    jsonlite,
+    plotly,
+    bit64,
+    stringr
+Roxygen: list(wrap = FALSE)
+RoxygenNote: 6.1.1
