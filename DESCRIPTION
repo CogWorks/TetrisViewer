@@ -13,6 +13,7 @@ Depends:
     data.table
 Imports:
     ggplot2,
+    dplyr (>= 0.7.7),
     manipulateWidget,
     jsonlite,
     plotly,
