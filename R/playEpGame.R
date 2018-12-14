@@ -84,7 +84,7 @@ playEpGame <- function(g, game, episode.col, game.col, board_rep.col, zoid_rep.c
   if(video){
     req.load("animation")
   }
-  if(class(g)=="character"){
+  if("character" %in% class(g)){
     g <- fread(g)
     if(!"data.table" %in% class(g)){
       stop("Failed to read in file.")
