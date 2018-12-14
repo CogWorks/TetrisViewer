@@ -39,7 +39,6 @@
 #'
 #' @import data.table
 #' @import ggplot2
-#' @import animation
 #' @import manipulateWidget
 #' @import jsonlite
 #' @import plotly
@@ -156,13 +155,12 @@ playEpGame <- function(g, game, episode.col, game.col, board_rep.col, zoid_rep.c
     rbindlist(list(breps[[cur.frame$b_id]], zrep[[cur.frame$z_id]]))[, id:= 1:.N][, list(x=as.numeric(unlist(x)),y=as.numeric(unlist(y)), zoid = v), by = id]
   }
 
-
-  if(!video || !require(animation)){
+  if(!video || !requireNamespace("animation", quietly = TRUE)){
 
     if(is.null(time.col)){
       manipulateWidget(
         ggplotly(
-          ggplot(data= get.zbr(episode, frame)) +  geom_polygon( aes(x=x, y=y, fill = factor(zoid), group = id)) +
+          ggplot(data= data.table(get.zbr(episode, frame))) +  geom_polygon( aes(x=x, y=y, fill = factor(zoid), group = id)) +
             scale_fill_manual(name="Zoid", labels=list("1"="I", "2"="O", "3" = "T", "4" = "S", "5"="Z", "6"="J", "7"= "L", "8"="Option 1", "9"="Option 2"), values= zcol) +
             coord_fixed(ratio = 1, xlim = c(0, 500), ylim=c(0,1000)) + theme_bw()+ guides(fill=FALSE, color=FALSE) +
             theme(panel.border = element_blank(), panel.grid.major = element_blank(),

@@ -13,11 +13,14 @@ Depends:
     data.table
 Imports:
     ggplot2,
-    animation,
     manipulateWidget,
     jsonlite,
     plotly,
     bit64,
     stringr
+Suggests:
+    animation
 Roxygen: list(wrap = FALSE)
 RoxygenNote: 6.1.1
+
+
